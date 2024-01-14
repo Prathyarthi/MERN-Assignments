@@ -7,7 +7,7 @@ function App() {
   const [details, setDetails] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:8000/card/CardDetails')
+    axios.get('http://localhost:8000/card/getCards')
       .then(async (res) => {
         const response = await setDetails(res.data.cards)
         console.log(response);

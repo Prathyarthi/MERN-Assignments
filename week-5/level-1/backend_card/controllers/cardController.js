@@ -34,5 +34,18 @@ export const cardDetails = async (req, res) => {
 
 
 export const getCards = async (req, res) => { 
+    const cardDetails = await Card.find({})
 
+    if (!cardDetails) {
+        return res.status(404).json({
+            success: false,
+            message: 'No Cards found.'
+        })
+    }
+
+    res.status(200).json({
+        success: true,
+        message: "Cards fetched",
+        cards:cardDetails
+    })
 }
