@@ -33,7 +33,7 @@ export const cardDetails = async (req, res) => {
 }
 
 
-export const getCards = async (req, res) => { 
+export const getCards = async (req, res) => {
     const cardDetails = await Card.find({})
 
     if (!cardDetails) {
@@ -46,6 +46,6 @@ export const getCards = async (req, res) => {
     res.status(200).json({
         success: true,
         message: "Cards fetched",
-        cards:cardDetails
+        cardDetails
     })
 }

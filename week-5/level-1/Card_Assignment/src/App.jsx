@@ -9,8 +9,7 @@ function App() {
   useEffect(() => {
     axios.get('http://localhost:8000/card/getCards')
       .then(async (res) => {
-        const response = await setDetails(res.data.cards)
-        console.log(response);
+        setDetails(res.data.cardDetails)
       })
   }, [])
 
@@ -37,8 +36,8 @@ function App() {
       {/* <Card name={details.name} description={details.description} interests={details['interests']} /> */}
       {details.map((data) => {
         return <Card_template
-          key={data.id} name={data.name} description={data.description} interests={data['interests']}>
-        </Card_template>
+          key={data._id} name={data.name} description={data.description} interests={data['interests']}>
+        </Card_template>  
       })}
     </div >
   )
